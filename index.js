@@ -60,7 +60,34 @@ console.log(dogify(2));
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-
+function dogFeeder(weight,age){
+  if(age >=.166 && age <=.33){
+    food = weight*.10
+    return(food);
+  }else if(age >=.33 && age <=.583){
+    food = weight*.05
+    return(food)
+  }else if(age >=.583 && age <= 1.0){
+    food = weight*.04
+    return(food)
+  }else if(age > 1.0 && weight < 5){
+    food = weight*.05
+    return(food)
+  }else if(age >=1.0 && weight >= 5 && weight <= 10){
+    food = weight*.04
+    return(food)
+  }else if(age >= 1.0 && weight > 10 && weight <= 15){
+    food = weight*.03
+    return(food)
+  }else if(age >= 1.0 && weight > 15){
+    food = weight*.02
+    return(food)
+  }
+  else{
+    return('nothing passed')
+  }
+}
+console.log(dogFeeder(15,1));
 /************************************************************** Task 4 **************************************************************/
 // Rock, Paper, Sissors
 // Your function should take a string (either rock paper or sissors)
@@ -68,16 +95,59 @@ console.log(dogify(2));
 // use math.random to determine the computers choice
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number
 
+function prs(choice){
+  let b = Math.floor(Math.random() * 3) + 1;
+   if(b === 1 && choice === 'paper'){
+     return'paper covers rock, you win!';
+   }else if(b=== 1 && choice === 'sissor'){
+     return'rock smashes sissors, you lose!';
+   }else if(b===1 && choice === 'rock'){
+     return'its a tie!';
+   }else if(b===2 && choice === 'rock'){
+     return'paper covers rock, you lose!';
+   }else if(b===2 && choice === 'sissor'){
+     return'sissor cuts paper, you win!';
+   }else if(b===2 && choice === 'paper'){
+     return'its a tie!';
+   }else if(b===3 && choice === 'rock'){
+     return'rock smashes sissors, you win!';
+   }else if(b===3 && choice === 'paper'){
+     return'sissor cuts paper, you lose!';
+   }else if(b===3 && choice === 'sissor'){
+     return'its a tie!';
+   }
+ }
+ console.log(prs('sissor'));
+
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
+function toMiles(num){
+  let miles = (num / 8)*5;
+    console.log(miles);
+  }
+
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
+
+function toCm(num){
+  let cm = (num*12)*2.54;
+    console.log(cm);
+  }
 
 /************************************************************** Task 6 **************************************************************/
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
+
+function annoyingSong(num){
+  for(let i = num;i >= 1;i--){
+  let num2 = (num-1); 
+    console.log(num +' bottles of soda on the wall, '+ num +' bottles of soda, take one down pass it arround '+ num2 +' bottles of soda on the wall');
+    num = num2
+  }
+}
+annoyingSong(5);
 
 /************************************************************** Task 7 **************************************************************/
 //Grade Calculator
@@ -87,6 +157,22 @@ console.log(dogify(2));
 //70s should be Cs
 //60s should be D
 //and anything below 60 should be F
+
+function gradeCalc(num){
+  if(num>=90){
+    consol.log('A');
+  }else if(num < 90 && num >=80){
+    console.log('B');
+  }else if(num < 80 && num >= 70){
+    console.log('C');
+  }else if(num < 70 && num >= 60){
+    console.log('D');
+  }else{
+    console.log('F')
+  }
+}
+gradeCalc(82);
+
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
